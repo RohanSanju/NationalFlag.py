@@ -1,0 +1,63 @@
+import turtle
+screen = turtle.Screen()
+t = turtle.Turtle()
+t.speed(5)
+"Happy Independence Day"
+t.penup()
+t.goto(0,200)
+t.pendown()
+t.color("orange")
+t.write("Happy Independence Day",align="center",font=("Fixedsys",24,"bold"))
+def draw_rectangle(color,x_position):
+    t.penup()
+    t.goto(-200,x_position)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    for i in range(2):
+        t.forward(400)
+        t.right(90)
+        t.forward(84)
+        t.right(90)
+    t.end_fill()
+def draw_circle(color,radius,x_offset):
+    t.penup()
+    t.goto(0,x_offset -radius)  #35,0
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    t.circle(radius)
+    t.end_fill()
+def mini_blue_circle(radius,distance):
+    t.penup()
+    t.goto(0, -radius)
+    t.pendown()
+    t.color("navy")
+    for _ in range(24):
+        t.pendown()
+def flag_spoke():
+    t.penup()
+    t.goto(0,0)
+    t.pendown()
+    t.pensize(1)
+    for i in range(24):
+        t.forward(30)
+        t.backward(30)
+        t.left(15)
+def flag_stick():
+    t.penup()
+    t.goto(-200,125)
+    t.pendown()
+    t.color("brown")
+    t.pensize(10)
+    t.right(90)
+    t.forward(800)
+draw_rectangle("orange",125)
+draw_rectangle("white",41)
+draw_rectangle("green",-43)
+draw_circle("navy",35,0)
+draw_circle("white",30,0)
+mini_blue_circle(30,7)
+flag_spoke()
+flag_stick()
+turtle.done()
